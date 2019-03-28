@@ -1,0 +1,30 @@
+{
+  "name": "5sens",
+  "version": "1.0.0",
+  "description": "Projet usine des Sensorielle",
+  "main": "src/index.html",
+  "scripts": {
+    "dev": "NODE_ENV=development parcel serve ./src/index.html",
+    "build": "rm -rf ./dist; NODE_ENV=production parcel build ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AldebaranLeger/5Sens.git"
+  },
+  "author": "Aldébaran Leger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AldebaranLeger/5Sens/issues"
+  },
+  "homepage": "https://github.com/AldebaranLeger/5Sens#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3",
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.6.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
