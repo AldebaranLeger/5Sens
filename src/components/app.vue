@@ -1,7 +1,5 @@
 <template>
-    <main>
-        <router-view id="content"></router-view>
-    </main>
+    <router-view id="content"></router-view>
 </template>
 
 <script>
@@ -10,6 +8,10 @@
     }
 </script>
 
-<style scoped>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+    }
 
 </style>
