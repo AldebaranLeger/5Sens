@@ -56,18 +56,12 @@
 <script>
     export default {
         name: "home",
-        methods: {
-            onSubmit: function () {
-                router.go(choice)
-            }
-        }
-    }
-    const app = new Vue({
-        el: '#app',
-        data: {
-            errors: [],
-            name: null,
-            email: null
+        data() {
+            return {
+                errors: [],
+                name: null,
+                email: null
+            };
         },
         methods: {
             checkForm: function (e) {
@@ -93,7 +87,7 @@
                 return re.test(email);
             }
         }
-    })
+    };
 </script>
 
 <style scoped>
