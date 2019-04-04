@@ -4,10 +4,46 @@
             <h1><img src="../assets/images/monstre_login.PNG" alt="" height="" width="">
             </h1><br>
             <form
-            @submit.prevent="onSubmit">
-                <label>  Email <input type="text" name="user" placeholder="Email" v-model="email"> </label>
-                <label>Mot de passe <input type="password" name="pass" placeholder="Mot de passe" v-model="password"> </label>
-                <input v-on:click="onSubmit" type="submit" name="login" class="login login-submit" value="se connecter">
+                    @submit="checkForm"
+                    action="https://vuejs.org/"
+                    id="app"
+                    method="post"
+                    novalidate="true"
+            >
+
+                <p v-if="errors.length">
+                    <b>Please correct the following error(s):</b>
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+
+                <p>
+                    <label for="name">Name</label>
+                    <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            v-model="name"
+                    >
+                </p>
+
+                <p>
+                    <label for="email">Email</label>
+                    <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            v-model="email"
+                    >
+                </p>
+
+                <p>
+                    <input
+                            type="submit"
+                            value="Submit"
+                    >
+                </p>
+
             </form>
 
             <div class="login-help">
@@ -20,18 +56,44 @@
 <script>
     export default {
         name: "home",
-        data() {
-            return {
-                email: "",
-                password: ""
-            }
-        },
         methods: {
             onSubmit: function () {
                 router.go(choice)
             }
         }
     }
+    const app = new Vue({
+        el: '#app',
+        data: {
+            errors: [],
+            name: null,
+            email: null
+        },
+        methods: {
+            checkForm: function (e) {
+                this.errors = [];
+
+                if (!this.name) {
+                    this.errors.push("Name required.");
+                }
+                if (!this.email) {
+                    this.errors.push('Email required.');
+                } else if (!this.validEmail(this.email)) {
+                    this.errors.push('Valid email required.');
+                }
+
+                if (!this.errors.length) {
+                    return true;
+                }
+
+                e.preventDefault();
+            },
+            validEmail: function (email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+        }
+    })
 </script>
 
 <style scoped>
@@ -77,25 +139,25 @@
         text-align: center;
     }
 
-    .login {
-        border: none;
-        text-align: center;
-        font-size: 14px;
-        font-family: 'Arial', sans-serif;
-        height: 36px;
-        padding: 0 8px;
-    }
+    /*.login {*/
+    /*    border: none;*/
+    /*    text-align: center;*/
+    /*    font-size: 14px;*/
+    /*    font-family: 'Arial', sans-serif;*/
+    /*    height: 36px;*/
+    /*    padding: 0 8px;*/
+    /*}*/
 
-    .login-submit {
-        font-weight: bold;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        border: 2px solid white;
-        border-radius: 30px;
-        color: #fff;
-        text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-        background-color: #a1dddf;
-    }
+    /*.login-submit {*/
+    /*    font-weight: bold;*/
+    /*    margin-top: 20px;*/
+    /*    margin-bottom: 10px;*/
+    /*    border: 2px solid white;*/
+    /*    border-radius: 30px;*/
+    /*    color: #fff;*/
+    /*    text-shadow: 0 1px rgba(0, 0, 0, 0.1);*/
+    /*    background-color: #a1dddf;*/
+    /*}*/
 
     /* Les liens vers mots de passe oublié et créer un compte */
     .login-card a {
