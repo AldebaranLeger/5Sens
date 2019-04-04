@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="login-card ">
-            <h1><img src="../assets/images/monstre_login.PNG" alt="" height="" width="">
+            <h1><img alt="" height="" src="../assets/images/monstre_login.PNG" width="">
             </h1><br>
             <form
                     @submit="checkForm"
