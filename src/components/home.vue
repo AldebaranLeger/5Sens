@@ -5,9 +5,9 @@
             </h1><br>
             <form
             @submit.prevent="onSubmit">
-                <input type="text" name="user" placeholder="Email" v-model="email">
-                <input type="password" name="pass" placeholder="Mot de passe" v-model="password">
-                <input type="submit" name="login" class="login login-submit" value="se connecter">
+                <label>  Email <input type="text" name="user" placeholder="Email" v-model="email"> </label>
+                <label>Mot de passe <input type="password" name="pass" placeholder="Mot de passe" v-model="password"> </label>
+                <input v-on:click="onSubmit" type="submit" name="login" class="login login-submit" value="se connecter">
             </form>
 
             <div class="login-help">
@@ -27,7 +27,8 @@
             }
         },
         methods: {
-            onSubmit(e) {
+            onSubmit: function () {
+                router.go(choice)
             }
         }
     }
