@@ -22,13 +22,10 @@
                 mapStyle: "mapbox://styles/kaize/cjuce30n91as21fjxd2oaxeq4" // your map style
             };
         },
-
-        created() {
-            // We need to set mapbox-gl library here in order to use it in template
-            this.mapbox = Mapbox;
-        },
-        created() {
-            this.map = null;
+        methods: {
+            onMapLoaded(e) {
+                const map = e.map;
+            }
         },
     };
 
