@@ -3,77 +3,60 @@
         <div class="login-card ">
             <h1><img alt="" height="" src="../assets/images/monstre_login.PNG" width="">
             </h1><br>
-            <form
-                    @submit="checkForm"
-                    action="https://vuejs.org/"
-                    id="app"
-                    method="post"
-                    novalidate="true"
-            >
 
-                <p v-if="errors.length">
-                    <b>Please correct the following error(s):</b>
-                <ul>
-                    <li v-for="error in errors">{{ error }}</li>
-                </ul>
+                    <form>
+                        <input
+                                id="email"
+                                v-model="email"
+                                type="email"
+                                name="email"
+                                placeholder="Email">
+                        <input
+                                type="password"
+                                name="password"
+                                v-model="password"
+                                placeholder="Mot de passe">
+                        <input
+                                v-on:submit="moveToChoice"
+                                type="submit"
+                                name="login"
+                                class="login login-submit"
+                                value="se connecter">
+                    </form>
 
-                <p>
-                    <label for="name">Name</label>
-                    <input
-                            id="name"
-                            name="name"
-                            type="text"
-                            v-model="name"
-                    >
-                </p>
-
-                <p>
-                    <label for="email">Email</label>
-                    <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            v-model="email"
-                    >
-                </p>
-
-                <p>
-                    <input
-                            type="submit"
-                            value="Submit"
-                    >
-                </p>
-
-            </form>
-
-            <div class="login-help">
-                <a href="#">Créer un compte</a> • <a href="#">Mot de passe oublié</a>
-            </div>
-        </div>
+                    <div class="login-help">
+                        <a v-on:click="moveToChoice">Créer un compte</a> • <a href="#">Mot de passe oublié</a>
+                        <router-link to="choice">Choice</router-link>
+                    </div>
+                </div>
     </main>
 </template>
 
 <script>
+
     export default {
         name: "home",
         data() {
             return {
                 errors: [],
-                name: null,
+                password: null,
                 email: null
             };
         },
         methods: {
+            moveToChoice: function(){
+                router.push('/choice');
+            },
             checkForm: function (e) {
                 this.errors = [];
 
-                if (!this.name) {
-                    this.errors.push("Name required.");
+                if (!this.password) {
+                    this.errors.push("Mot de passe requis.");
                 }
                 if (!this.email) {
-                    this.errors.push('Email required.');
+                    this.errors.push('Email requis.');
                 } else if (!this.validEmail(this.email)) {
-                    this.errors.push('Valid email required.');
+                    this.errors.push('Email non valide.');
                 }
 
                 if (!this.errors.length) {
@@ -94,12 +77,16 @@
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
         Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
     }
 
     .login-card {
         padding: 40px;
         background-color: #a1dddf;
         margin: 0 auto 10px;
+        height: 100vh;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         overflow: hidden;
     }
@@ -117,8 +104,8 @@
     }
 
     /* Textes à l'intérieur des Input */
-    .login-card input[type=text],
-    input[type=password] {
+    .login-card input[type=email],
+    input[type=password], input[type=texte] {
         font-weight: bold;
         color: white;
         height: 44px;
@@ -133,25 +120,25 @@
         text-align: center;
     }
 
-    /*.login {*/
-    /*    border: none;*/
-    /*    text-align: center;*/
-    /*    font-size: 14px;*/
-    /*    font-family: 'Arial', sans-serif;*/
-    /*    height: 36px;*/
-    /*    padding: 0 8px;*/
-    /*}*/
+    .login {
+        border: none;
+        text-align: center;
+        font-size: 14px;
+        font-family: 'Arial', sans-serif;
+        height: 36px;
+        padding: 0 8px;
+    }
 
-    /*.login-submit {*/
-    /*    font-weight: bold;*/
-    /*    margin-top: 20px;*/
-    /*    margin-bottom: 10px;*/
-    /*    border: 2px solid white;*/
-    /*    border-radius: 30px;*/
-    /*    color: #fff;*/
-    /*    text-shadow: 0 1px rgba(0, 0, 0, 0.1);*/
-    /*    background-color: #a1dddf;*/
-    /*}*/
+    .login-submit {
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border: 2px solid white;
+        border-radius: 30px;
+        color: #fff;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+        background-color: #a1dddf;
+    }
 
     /* Les liens vers mots de passe oublié et créer un compte */
     .login-card a {

@@ -3,12 +3,12 @@
         <div class="col-6" style="left: 50%; height: 100vh; background-color: #a1dddf"></div>
 
         <div id="triangle-right">
-            <h2 style="margin-top: 100px; font-weight: bold; color: white ">ex situ</h2>
+            <h2 id="" ><router-link to="map">ex-situ</router-link></h2>
         </div>
         <div id="triangle-left">
-            <h2 style="margin-top: -200px; font-weight: bold; color: #ff3100">in situ</h2>
+            <h2 id="in-situ">in situ</h2>
         </div>
-    </main><!-- /.container -->npm
+    </main><!-- /.container -->
 </template>
 
 <script>
@@ -18,6 +18,16 @@
 </script>
 
 <style scoped>
+    ##ex-situ {
+        margin-top: 100px;
+        font-weight: bold;
+        color: white
+    }
+    #in-situ {
+         margin-top: -200px;
+         font-weight: bold;
+         color: #ff3100
+     }
     #triangle-left {
         position: absolute;
         top: 50%;

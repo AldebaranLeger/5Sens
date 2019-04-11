@@ -4,7 +4,7 @@
   "description": "Projet usine des Sensorielle",
   "main": "src/index.html",
   "scripts": {
-    "dev": "NODE_ENV=development parcel serve ./src/index.html",
+    "dev": "parcel serve ./src/index.html --hmr-hostname 0.0.0.0",
     "build": "rm -rf ./dist; NODE_ENV=production parcel build ./src/index.html"
   },
   "repository": {
@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/AldebaranLeger/5Sens#readme",
   "dependencies": {
+    "mapbox-gl": "^0.53.1",
     "parcel-bundler": "^1.12.3",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3",
+    "vue-mapbox": "^0.2.2",
     "vue-router": "^3.0.2"
   },
   "devDependencies": {
