@@ -3,7 +3,7 @@
         <div class="col-6" style="left: 50%; height: 100vh; background-color: #a1dddf"></div>
 
         <div id="triangle-right">
-            <h2 id="" ><router-link to="map">ex-situ</router-link></h2>
+            <h2 id="" ><router-link to="/map">ex-situ</router-link></h2>
         </div>
         <div id="triangle-left">
             <h2 id="in-situ">in situ</h2>
@@ -18,7 +18,7 @@
 </script>
 
 <style scoped>
-    ##ex-situ {
+    #ex-situ {
         margin-top: 100px;
         font-weight: bold;
         color: white

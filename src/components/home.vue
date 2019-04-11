@@ -4,7 +4,8 @@
             <h1><img alt="" height="" src="../assets/images/monstre_login.PNG" width="">
             </h1><br>
 
-                    <form>
+                    <form
+                            @submit="checkForm">
                         <input
                                 id="email"
                                 v-model="email"
@@ -17,7 +18,6 @@
                                 v-model="password"
                                 placeholder="Mot de passe">
                         <input
-                                v-on:submit="moveToChoice"
                                 type="submit"
                                 name="login"
                                 class="login login-submit"
@@ -25,8 +25,7 @@
                     </form>
 
                     <div class="login-help">
-                        <a v-on:click="moveToChoice">Créer un compte</a> • <a href="#">Mot de passe oublié</a>
-                        <router-link to="choice">Choice</router-link>
+                        <a>Créer un compte</a> • <a href="#">Mot de passe oublié</a>
                     </div>
                 </div>
     </main>
@@ -44,10 +43,8 @@
             };
         },
         methods: {
-            moveToChoice: function(){
-                router.push('/choice');
-            },
             checkForm: function (e) {
+                e.preventDefault();
                 this.errors = [];
 
                 if (!this.password) {
@@ -60,13 +57,11 @@
                 }
 
                 if (!this.errors.length) {
-                    return true;
+                    this.$router.push("/choice");
                 }
-
-                e.preventDefault();
             },
             validEmail: function (email) {
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return re.test(email);
             }
         }
