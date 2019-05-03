@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AldebaranLeger/5Sens#readme",
   "dependencies": {
     "mapbox-gl": "^0.53.1",
+    "mapbox-gl-vue": "^1.9.0",
     "parcel-bundler": "^1.12.3",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3",
