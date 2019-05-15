@@ -3,8 +3,11 @@ import Router from 'vue-router';
 import Home from './components/home';
 import Choice from  './components/choice';
 import Map from  './components/map';
+import Avatar from  './components/avatar';
+
 
 Vue.use(Router);
+
 
 export default new Router({
     mode: 'history',
@@ -23,6 +26,12 @@ export default new Router({
             path : '/map',
             name: 'map',
             component: Map,
+        },
+        {
+            path : '/avatar',
+            name: 'avatar',
+            component: Avatar,
+
         }
     ]
 })
