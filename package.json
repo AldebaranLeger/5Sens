@@ -4,7 +4,7 @@
   "description": "Projet usine des Sensorielle",
   "main": "src/index.html",
   "scripts": {
-    "dev": "parcel serve ./src/index.html --hmr-hostname 0.0.0.0",
+    "dev": "parcel serve ./src/index.html --public-url /5sens",
     "build": "rm -rf ./dist; NODE_ENV=production parcel build ./src/index.html"
   },
   "repository": {

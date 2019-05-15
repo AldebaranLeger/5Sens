@@ -69,13 +69,6 @@
 </script>
 
 <style scoped>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
-        Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        margin: 0;
-        height: 100vh;
-        overflow: hidden;
-    }
 
     .login-card {
         padding: 40px;
@@ -99,21 +92,7 @@
     }
 
     /* Textes à l'intérieur des Input */
-    .login-card input[type=email],
-    input[type=password], input[type=texte] {
-        font-weight: bold;
-        color: white;
-        height: 44px;
-        font-size: 16px;
-        width: 100%;
-        margin-bottom: 20px;
-        background: #a1dddf;
-        border: none;
-        border-bottom: 2px solid white;
-        padding: 0 8px;
-        box-sizing: border-box;
-        text-align: center;
-    }
+    .login-card
 
     .login {
         border: none;
